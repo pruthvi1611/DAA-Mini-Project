@@ -1,12 +1,9 @@
-// main.cpp - Student Record Sorting & Searching System (DAA Mini Project)
-// Compile: g++ -std=c++17 main.cpp -o student_system
 #include <iostream>
 #include <iomanip>
 #include "student.h"
 #include "sorting.h"
 #include "searching.h"
 
-// ---------- small input helpers ----------
 int readInt(string msg) {
     int x;
     cout << msg;
@@ -38,7 +35,6 @@ string readText(string msg) {
     return s;
 }
 
-// ---------- display ----------
 void showStudent(Student s) {
     cout << left << setw(8) << s.roll << setw(22) << s.name
          << setw(8) << s.branch << fixed << setprecision(2) << s.cgpa << "\n";
@@ -52,7 +48,7 @@ void showAll(vector<Student> &v) {
     cout << "Total students: " << v.size() << "\n";
 }
 
-// ---------- menu actions ----------
+
 void addStudent(vector<Student> &v) {
     Student s;
     s.roll = readInt("Roll No: ");
@@ -64,6 +60,7 @@ void addStudent(vector<Student> &v) {
     v.push_back(s);
     cout << "Student added.\n";
 }
+
 
 void sortStudents(vector<Student> &v) {
     cout << "1. Bubble  2. Selection  3. Insertion  4. Merge  5. Quick\n";
@@ -81,6 +78,7 @@ void sortStudents(vector<Student> &v) {
 
     cout << "Sorted! Comparisons made: " << comparisons << "\n";
 }
+
 
 void searchStudent(vector<Student> &v) {
     cout << "1. Linear search by Roll No\n"
@@ -100,7 +98,7 @@ void searchStudent(vector<Student> &v) {
     cout << "Comparisons made: " << comparisons << "\n";
 }
 
-// ---------- main ----------
+
 int main() {
     vector<Student> students = {
         {112, "Rahul Patel",   "IT",  8.45}, {105, "Neha Shah",     "IT",  9.10},

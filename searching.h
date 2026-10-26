@@ -1,9 +1,7 @@
-// searching.h - Linear and Binary search
-// Each function returns the position (index) of the student, or -1 if not found.
 #pragma once
 #include "student.h"
 
-// Linear Search - O(n): check every student one by one (no sorting needed)
+// Linear Search
 int linearSearchRoll(vector<Student> &v, int roll) {
     for (int i = 0; i < (int)v.size(); i++) {
         comparisons++;

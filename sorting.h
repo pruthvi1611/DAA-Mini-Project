@@ -1,9 +1,8 @@
-// sorting.h - 5 sorting algorithms
-// key: 1 = Roll No, 2 = Name, 3 = CGPA (highest first)
+
 #pragma once
 #include "student.h"
 
-// true if a should come before b
+// true if a should come before b 
 bool before(Student a, Student b, int key) {
     comparisons++;
     if (key == 1) return a.roll < b.roll;
@@ -11,7 +10,7 @@ bool before(Student a, Student b, int key) {
     return a.cgpa > b.cgpa;
 }
 
-// 1. Bubble Sort - O(n^2): swap neighbours that are in the wrong order
+// 1. Bubble Sort
 void bubbleSort(vector<Student> &v, int key) {
     int n = v.size();
     for (int i = 0; i < n - 1; i++)
@@ -20,7 +19,7 @@ void bubbleSort(vector<Student> &v, int key) {
                 swap(v[j], v[j + 1]);
 }
 
-// 2. Selection Sort - O(n^2): pick the best element and put it in front
+// 2. Selection Sort
 void selectionSort(vector<Student> &v, int key) {
     int n = v.size();
     for (int i = 0; i < n - 1; i++) {
@@ -32,7 +31,7 @@ void selectionSort(vector<Student> &v, int key) {
     }
 }
 
-// 3. Insertion Sort - O(n^2): insert each record into the sorted part
+// 3. Insertion Sort
 void insertionSort(vector<Student> &v, int key) {
     for (int i = 1; i < (int)v.size(); i++) {
         Student current = v[i];
@@ -45,7 +44,7 @@ void insertionSort(vector<Student> &v, int key) {
     }
 }
 
-// 4. Merge Sort - O(n log n): split in half, sort both halves, merge them
+// 4. Merge Sort
 void mergeSort(vector<Student> &v, int left, int right, int key) {
     if (left >= right) return;
     int mid = (left + right) / 2;
@@ -65,7 +64,7 @@ void mergeSort(vector<Student> &v, int left, int right, int key) {
         v[left + k] = temp[k];
 }
 
-// 5. Quick Sort - O(n log n) average: pick a pivot, smaller ones go before it
+// 5. Quick Sort
 void quickSort(vector<Student> &v, int low, int high, int key) {
     if (low >= high) return;
     Student pivot = v[high];

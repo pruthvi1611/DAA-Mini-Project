@@ -13,10 +13,9 @@ struct Student {
     float  cgpa;
 };
 
-// Counts how many comparisons an algorithm makes (used for analysis)
 long long comparisons = 0;
 
-// Makes text lowercase so "Neha" and "neha" are treated the same
+
 inline string lower(string s) {
     for (char &c : s) c = tolower(c);
     return s;
